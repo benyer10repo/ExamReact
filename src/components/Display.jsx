@@ -1,6 +1,8 @@
+import './display.css'
+
 const Display = ({value}) => {
     return (
-        <div>
+        <div className='component-display'>
             <div>{value}</div>
         </div>
     )
@@ -10,11 +12,3 @@ const Display = ({value}) => {
 export default Display;
 
 
-/*//exportar
-export default function Display ({value}){
-    return(
-        <div>
-            <div>{value}</div>
-        </div>
-    )
-}*/

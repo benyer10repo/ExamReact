@@ -3,7 +3,7 @@ import Big from "big.js";
 import Operate from "./Operate";
 import IsNumber from "./IsNumber";
 
-export default function Operaciones(estado,nombreDeBoton) {
+const Operaciones = (estado,nombreDeBoton) => {
 
     if(nombreDeBoton === "AC"){
         return{
@@ -46,6 +46,102 @@ export default function Operaciones(estado,nombreDeBoton) {
             return {siguiente: Big(estado.siguiente).div(Big("100")).toString(),}
         }
 
+        return {}
+    }
+    if(nombreDeBoton ==="x²"){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: Math.pow(Big(result),2).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: Math.pow(Big(estado.siguiente),2).toString(),}
+        }
+        return {}
+    }
+    if(nombreDeBoton ==="x³"){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: Math.pow(Big(result),3).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: Math.pow(Big(estado.siguiente),3).toString(),}
+        }
+        return {}
+    }
+    if(nombreDeBoton === 	'\u221A'){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: Math.sqrt(Big(result)).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: Math.sqrt(Big(estado.siguiente)).toString(),}
+        }
+        return {}
+    }
+    if(nombreDeBoton ==="log"){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: Math.log10(Big(result)).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: Math.log10(Big(estado.siguiente)).toString(),}
+        }
+        return {}
+    }
+    if(nombreDeBoton ==="π"){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: (Math.PI).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: (Math.PI).toString(),}
+        }
+        return {total: (Math.PI).toString(),}
+    }
+    if(nombreDeBoton ==="cos"){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: (Math.cos(Big(result))).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: (Math.cos(Big(estado.siguiente))).toString(),}
+        }
+        return {}
+    }
+    if(nombreDeBoton ==="sin"){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: Math.sin(Big(result)).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: Math.sin(Big(estado.siguiente)).toString(),}
+        }
+        return {}
+    }
+    if(nombreDeBoton ==="tan"){
+        if(estado.operador && estado.siguiente){
+
+            const result = Operate(estado.total, estado.siguiente, estado.operador)
+
+            return{total: Math.tan(Big(result)).toString(),siguiente:null,operador:null,}
+        }
+        if(estado.siguiente){
+            return {siguiente: Math.tan(Big(estado.siguiente)).toString(),}
+        }
         return {}
     }
 
@@ -106,3 +202,4 @@ export default function Operaciones(estado,nombreDeBoton) {
 
 }
 
+export default Operaciones;

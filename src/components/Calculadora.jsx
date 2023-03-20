@@ -4,27 +4,10 @@ import Display from './Display'
 import PanelDeBotones from './PanelDeBotones'
 import { Component } from "react";
 import Operaciones from '../logic/Operaciones';
+import './calculadora.css'
 
 
-/*const Calculadora = () => {
 
-    state = {
-        total: null,
-        siguiente: null,
-        operador: null,
-    }
-    
-    return (
-        <div>
-            <Link to={'/'}> Regrsar al menú</Link>
-
-            <div>
-                <Display value={this.state.siguiente || this.state.total || "0"}/>
-            </div>
-        </div>
-    )
-
-}*/
 class Calculadora extends Component {
     state = {
         total: null,
@@ -37,9 +20,9 @@ class Calculadora extends Component {
     render() {
         return (
             <div>
-                <Link to={'/'}> Regrsar al menú</Link>
+                <h2> <Link to={'/'}> Click 	&raquo; REGRESAR AL MENÚ</Link></h2>
                 
-                <div>
+                <div className='comoponent-app'>
                     <Display value={this.state.siguiente || this.state.total || "0"} />
                     
                     <PanelDeBotones clickHandle={this.handleClick} />

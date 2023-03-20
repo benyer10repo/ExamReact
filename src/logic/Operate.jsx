@@ -1,7 +1,7 @@
 
 import Big from "big.js";
 
-export default function Operate(numeroUno, numeroDos, operador) {
+const Operate = (numeroUno, numeroDos, operador) => {
 
     const uno = Big(numeroUno || "0");
     const dos = Big(numeroDos || (operador === "÷" || operador === 'x' ? "1": "0"));
@@ -13,3 +13,4 @@ export default function Operate(numeroUno, numeroDos, operador) {
     
 }
 
+export default Operate;
